@@ -1,59 +1,49 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/weather.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <title>Weather App</title>
-</head>
-<body>
-   <!-- Encabezado de la aplicación "Weather App" -->
-   <div class="hedd">Weather App</div>
-
-   <!-- Contenedor principal de la aplicación -->
-    <div class="app-main">
-        <!-- Contenedor de entrada de texto para ingresar el nombre de la ciudad -->
-        <div class="input">
-            <input type="text" id="input-box" class="input-box" placeholder="Enter City Name:" autocomplete="off">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Password Generator</h2>
+      <div class="result-container">
+        <span id="result"></span>
+        <button class="btn" id="clipboard">
+          <i class="far fa-clipboard"></i>
+        </button>
+      </div>
+      <div class="settings">
+        <div class="setting">
+          <label>Password Length</label>
+          <input type="number" id="length" min="4" max="20" value="20">
         </div>
-        
-        <!-- Línea divisoria -->
-        <a>____________________________________</a>
-        
-        <!-- Contenedor para mostrar datos meteorológicos -->
-        <div class="weather-body">
-            <!-- Contenedor de la ubicación y fecha -->
-            <div class="location">
-                <!-- Elemento para mostrar el nombre de la ciudad -->
-                <div class="city" id="city"><strong>Enter Correct Country/City Name:</strong></div>
-                <!-- Elemento para mostrar la fecha -->
-                <div class="date" id="date"></div>
-            </div>
-
-            <!-- Contenedor para mostrar el estado del clima -->
-            <div class="weather-status">
-                <!-- Elemento para mostrar la temperatura actual -->
-                <div class="temp" id="temp"></div>
-                <!-- Elemento para mostrar la temperatura mínima y máxima -->
-                <div class="min-max" id="min-max"></div>
-                <!-- Elemento para mostrar la descripción del clima -->
-                <div class="weather" id="weather"></div>
-                <!-- Elemento para mostrar una imagen relacionada con el clima -->
-                <div class="img" id="img"></div>
-            </div>
+        <div class="setting">
+          <label>Include uppercase letters</label>
+          <input type="checkbox" id="uppercase" checked>
         </div>
+        <div class="setting">
+          <label>Include lowercase letters</label>
+          <input type="checkbox" id="lowercase" checked>
+        </div>
+        <div class="setting">
+          <label>Include numbers</label>
+          <input type="checkbox" id="numbers" checked>
+        </div>
+        <div class="setting">
+          <label>Include symbols</label>
+          <input type="checkbox" id="symbols" checked>
+        </div>
+      </div>
 
-        <!-- Gráfico de datos meteorológicos (inicialmente oculto) -->
-        <div id="myChart" style="width:100%; height:250px"></div>
+      <button class="btn btn-large" id="generate">
+        Generate Password
+      </button>
     </div>
-
-    <!-- Pie de página -->
-    <div class="fot"></div>
-
-    <!-- Script JavaScript para la funcionalidad de la aplicación -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
