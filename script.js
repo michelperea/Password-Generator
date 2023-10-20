@@ -1,3 +1,4 @@
+// Obtener referencias a elementos del DOM
 const resultEl = document.getElementById('result')
 const lengthEl = document.getElementById('length')
 const uppercaseEl = document.getElementById('uppercase')
@@ -7,6 +8,7 @@ const symbolsEl = document.getElementById('symbols')
 const generateEl = document.getElementById('generate')
 const clipboardEl = document.getElementById('clipboard')
 
+// Objeto que contiene funciones para generar caracteres aleatorios
 const randomFunc = {
     lower: getRandomLower,
     upper: getRandomUpper,
@@ -14,15 +16,17 @@ const randomFunc = {
     symbol: getRandomSymbol
 }
 
+// Evento para copiar la contraseña al portapapeles
 clipboardEl.addEventListener('click', () => {
     const password = resultEl.innerText;
-  if (!password) {
-    return;
-  }
-  navigator.clipboard.writeText(password);
+    if (!password) {
+        return;
+    }
+    navigator.clipboard.writeText(password);
     alert('Password copied to clipboard!')
 })
 
+// Evento para generar una contraseña basada en las opciones seleccionadas
 generateEl.addEventListener('click', () => {
     const length = +lengthEl.value
     const hasLower = lowercaseEl.checked
@@ -33,6 +37,7 @@ generateEl.addEventListener('click', () => {
     resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length)
 })
 
+// Función para generar una contraseña basada en opciones
 function generatePassword(lower, upper, number, symbol, length) {
     let generatedPassword = ''
     const typesCount = lower + upper + number + symbol
@@ -54,6 +59,7 @@ function generatePassword(lower, upper, number, symbol, length) {
     return finalPassword
 }
 
+// Funciones para generar caracteres aleatorios
 function getRandomLower() {
     return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
 }
@@ -67,6 +73,4 @@ function getRandomNumber() {
 }
 
 function getRandomSymbol() {
-    const symbols = '!@#$%^&*(){}[]=<>/,.'
-    return symbols[Math.floor(Math.random() * symbols.length)]
-}
+    const symbols = '!@#$%^
